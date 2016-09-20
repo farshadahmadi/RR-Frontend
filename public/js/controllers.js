@@ -1,21 +1,23 @@
-'use strict';
+'use strict'
 
 /* Controllers */
 
-function AppCtrl($scope, $http) {
-  $http({method: 'GET', url: '/api/name'}).
-  success(function(data, status, headers, config) {
-    $scope.name = data.name;
-  }).
-  error(function(data, status, headers, config) {
-    $scope.name = 'Error!'
-  });
+function DeviceCtrl($scope, $http, Notification, devs) {
+
+  $scope.devices = devs;
+
+  $scope.shutDownDevice = function(device, index){
+
+    $http({method: 'DELETE', url: '/api/pipe/' + device.url})
+      .then(function(data) {
+        $scope.devices[index].status = "OFF";
+      })
+      .catch(function(e) {
+        if(e.status == 500){
+          $scope.devices[index].status = "OFF";
+        } else {
+          Notification.error(e.data);
+        }
+      });
+  };
 }
-
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
-
-
-function MyCtrl2() {
-}
-MyCtrl2.$inject = [];

@@ -24,7 +24,11 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname)));
 app.use(app.router);
+
+
+app.all('/api/pipe/*', api.pipe);
 
 // development only
 if (app.get('env') === 'development') {
@@ -40,13 +44,14 @@ if (app.get('env') === 'production') {
 
 // Routes
 app.get('/', routes.index);
-app.get('/partial/:name', routes.partial);
+app.get('/partials/:name', routes.partial);
 
 // JSON API
-app.get('/api/name', api.name);
+//app.get('/api/name', api.name);
+//app.get('/api/devices', api.devices);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+//app.get('*', routes.index);
 
 /**
 * Start Server

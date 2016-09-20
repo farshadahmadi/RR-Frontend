@@ -13,18 +13,9 @@ block body
     .collapse.navbar-collapse.navbar-ex1-collapse
       ul.nav.navbar-nav
         li
-          a(href="view1") View1
-        li  
-          a(href="view2") View2 
-  .container      
-    div(ng-controller='AppCtrl')
-      .jumbotron  
-        h1 Hello {{name}}
-      div(ng-view)
-    hr  
-    div
-      | Angular seed app: v
-      span(app-version)
+          a(href="/") Devices
+  .container
+    div(ng-view)
 
   script(src='js/lib/angular/angular.js')
   script(src='js/lib/angular/angular-route.js')
@@ -35,3 +26,4 @@ block body
   script(src='js/directives.js')
   script(src='js/lib/jquery/jquery-2.0.3.min.js')
   script(src='bootstrap/js/bootstrap.min.js')
+  script(src='bower_components/angular-ui-notification/dist/angular-ui-notification.min.js')

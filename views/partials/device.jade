@@ -1,0 +1,18 @@
+.row
+  .col-lg-12
+    p You can manage devices here.
+    div
+      ul.list-group
+        li.list-group-item(ng-repeat="device in devices")
+          .row
+            .col-lg-3
+              p {{device.name}}
+            .col-lg-3
+              p(ng-if="device.manufacturer == 'RPi'") Raspberry PI
+              p(ng-if="device.manufacturer == 'nascent'") Nascent
+              p(ng-if="device.manufacturer == 'Intel'") Intel Edison
+              p(ng-if="device.manufacturer == 'virtual'") Virtual Device
+            .col-lg-3
+              button.btn.btn-danger(ng-disabled="device.manufacturer == 'virtual' || device.status == 'OFF' ", ng-click='shutDownDevice(device, $index)') shutdown
+            .col-lg-3
+              p {{device.status}}
