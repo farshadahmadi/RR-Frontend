@@ -4,13 +4,15 @@ This project uses RR APIS and provides APIs to control the available resources i
 
 ## How to Install
 
-### Clone the project
+This project is a Nodejs + Expressjs + Angularjs + Bootstrap application.
 
-### Go to the root directory and run npm install to install server dependencies.
+1. Clone the project
 
-### Got to the public directory and run bower install to install client dependencies.
+2. Go to the root directory and run ```npm install``` to install server dependencies.
 
-### Run node app.js to start the ptoject
+3. Got to the public directory and run ```bower install``` to install client dependencies.
+
+4. Run ```node app.js``` to start the ptoject
 
 ## Directory Layout
     
