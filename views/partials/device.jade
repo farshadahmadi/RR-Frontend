@@ -13,6 +13,6 @@
               p(ng-if="device.manufacturer == 'Intel'") Intel Edison
               p(ng-if="device.manufacturer == 'virtual'") Virtual Device
             .col-lg-3
-              button.btn.btn-danger(ng-disabled="device.manufacturer == 'virtual' || device.status == 'OFF' ", ng-click='shutDownDevice(device, $index)') shutdown
+              button.btn.btn-danger(ng-disabled="(device.manufacturer == 'virtual' || device.status == 'OFF') && device.buttonStatus ", ng-click='shutDownDevice(device, $index)') shutdown
             .col-lg-3
               p {{device.status}}

@@ -30,6 +30,7 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
               return Promise.all(devs).then(function(values){
                 for(var i = 0; i < values.length; i++){
                   data.data[i].status = values[i];
+                  data.data[i].buttonStatus = true;
                 }
                 return data.data;
               });
